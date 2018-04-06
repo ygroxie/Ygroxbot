@@ -7,10 +7,4 @@ bot.on("ready", function() {
     console.log("Le bot a bien, était connecté !");
 });
 
-client.on('message', msg => {
-    if (msg.content === 'ping') {
-      msg.reply('Pong!');
-    }
-  });
-
 bot.login(process.env.TOKEN)
