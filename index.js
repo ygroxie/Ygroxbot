@@ -11,6 +11,6 @@ bot.on('message', function (message) {
     if (message.content === '!ping') {
         message.reply('pong !')
     }
-})
+});
 
 bot.login(process.env.TOKEN)
