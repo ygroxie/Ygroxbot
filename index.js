@@ -9,7 +9,7 @@ bot.on("ready", function() {
 
 bot.on('message', function (message) {
     if (message.content === '!ping') {
-        message.delete(1)
+        message.reply('pong !')
     }
 });
 
