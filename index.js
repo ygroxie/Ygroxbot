@@ -15,7 +15,7 @@ bot.on('message', function (message) {
 
 bot.on('message', function (message) {
     if (message.content === '!birthday') {
-        message.channel.tag.send('pong !')
+        message.channel.tag('pong !')
     }
 });
 
