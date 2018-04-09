@@ -9,7 +9,7 @@ bot.on("ready", function() {
 
 bot.on('message', function (message) {
     if (message.content === '!ping') {
-        message.chanel.send('pong !')
+        message.chanel.sendmessage('pong !')
     }
 })
 
