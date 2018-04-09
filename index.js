@@ -11,6 +11,12 @@ bot.on('message', function (message) {
     if (message.content === '!ping') {
         message.channel.send('pong !')
     }
-})
+});
+
+bot.on('message', function (message) {
+    if (message.content === '!birthday') {
+        message.channel.tag.send('pong !')
+    }
+});
 
 bot.login(process.env.TOKEN)
