@@ -16,7 +16,7 @@ bot.on('message', function (message) {
 bot.on('message', function (message) {
     if (message.content === '!birthday') {
         message.channel.send('pong !')
-        .user.mentions
+        .message.mentions('.user')
     }
 });
 
