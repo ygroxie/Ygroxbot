@@ -18,4 +18,12 @@ bot.on('guildMemberAdd', member => {
     member.addRole(role)
 })
 
+bot.on('guildMemberAdd', member => {
+member.guild.channels.find("name", "général").send(`Bienvenue à toi ${member} sur le serveur de la communauté de GFX !`)
+})
+
+bot.on('guildMemberRemove', member => {
+    member.guild.channels.find("name", "général").send(`Oh non ! ${member} vient de quitter le serveur !`)
+})
+
 bot.login(process.env.TOKEN)
