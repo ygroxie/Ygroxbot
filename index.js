@@ -19,7 +19,7 @@ bot.on('guildMemberAdd', member => {
 })
 
 bot.on('guildMemberAdd', member => {
-member.guild.channels.find("name", "général").send(`Bienvenue à toi ${member} sur le serveur de la GFX Communauté !`)
+    member.guild.channels.find("name", "général").send(`Bienvenue à toi ${member} sur le serveur de la GFX Communauté !`)
 })
 
 bot.on('guildMemberRemove', member => {
