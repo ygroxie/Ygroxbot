@@ -13,10 +13,9 @@ bot.on('message', function (message) {
     }
 });
 
-bot.on('message', function (message) {
-    if (message.content === '!birthday') {
-        message.channel.send('pong !'.user.mentions(id))
-    }
-});
+bot.on('guildMemberAdd', member => {
+    var role = member.guild.roles.find('name', 'test');
+    member.addRole(role)
+})
 
 bot.login(process.env.TOKEN)
