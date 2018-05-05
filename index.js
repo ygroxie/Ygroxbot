@@ -41,7 +41,7 @@ bot.on('message', message => {
         }
         let kickMember = message.guild.member(message.mentions.users.first());
         if(!kickMember) {
-            return.message.reply("Cet utilisateur est introuvable ou impossible à expulser")
+            return message.reply("Cet utilisateur est introuvable ou impossible à expulser")
         }
         if(!message.guild.member(bot.user).hasPermission("KICK_MEMBERS")) {
             return message.reply("Je n'ai pas la permission KICK_MEMBERS pour faire ceci.").catch(console.error);
