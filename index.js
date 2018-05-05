@@ -5,7 +5,7 @@ var bot = new Discord.Client();
 var prefix = (".")
 
 bot.on("ready", function() {
-    bot.user.setGame("YgroxBot, joue à .help");
+    bot.user.setGame("YgroxBot, .help");
     console.log("Le bot a bien, était connecté !");
 });
 
@@ -33,7 +33,7 @@ bot.on('message', message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     command = args.shift().toLowerCase();
 
-    if (command === ".kick") {
+    if (command === "kick") {
         let modRole = message.guild.roles.find("name", "Modo");
         if(!message.member.roles.has(modRole.id)) {
             return message.reply("Tu n'as pas la permission de faire cette commande. Désolé !").catch(console.error);
