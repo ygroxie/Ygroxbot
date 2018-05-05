@@ -64,6 +64,6 @@ if (command === "ban") {
         message.reply(`${member.user.username} a été bannu avec succès !`).catch(console.error);
         message.guild.channels.find("name", "bienvenue-aurevoir").send(`**${member.user.username}** a été banni du discord par **${message.author.username}**`);
     }).catch(console.error)
-}})
+}}})
 
 bot.login(process.env.TOKEN)
