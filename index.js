@@ -19,11 +19,51 @@ bot.on('guildMemberAdd', member => {
 })
 
 bot.on('guildMemberAdd', member => {
-    member.guild.channels.find("name", "général").send(`Bienvenue à toi ${member} sur le serveur de la GFX Communauté !`)
+    member.guild.channels.find("name", "bienvenue-aurevoir").send(`Bienvenue à toi ${member} sur le serveur de la GFX Communauté !`)
 })
 
 bot.on('guildMemberRemove', member => {
-    member.guild.channels.find("name", "général").send(`Oh non ! ${member} vient de quitter le serveur !`)
+    member.guild.channels.find("name", "bienvenue-aurevoir").send(`Oh non ! ${member} vient de quitter le serveur !`)
 })
+
+bot.on('message', message => {
+    let command = message.content.split(" ")[0];
+    const args = message.content.slice(prefix.length).split(/ +/);
+    command = args.shift().toLowerCase();
+
+    if (command === "kick") {
+        let modRole = message.guild.roles.find("name", "Modo");
+        if(!message.member.roles.has(modRole.id)) {
+            return message.reply("Tu n'as pas la permission de faire cette commande. Désolé !").catch(console.error);
+        }
+        if(message.mentions.users.size === 0) {
+            return message.reply("Merci de mentionner l'utilisateur à expulser.").catch(console.error);
+        }
+        let kickMember = message.guild.member(message.mentions.users.first());
+        id(!kickMember) {
+            return.message.reply("Cet utilisateur est introuvable ou impossible à expulser")
+        }
+        if(!message.guild.member(bot.user).hasPermission("KICK_MEMBERS")) {
+            return message.reply("Je n'ai pas la permission KICK_MEMBERS pour faire ceci.").catch(console.error);
+        }
+        kickMember.kick().then(member => {
+            message.reply(`${member.user.username} a été expulsé avec succès !`).catch(console.error);
+            message.guild.channels.find("name", "bienvenue-aurevoir").send(`**${member.user.username} a été expulsé du discord par **${message.author.username}**`);
+        }).catch(console.error)
+        
+}
+
+if (command === "ban") {
+    let modRole = message.guild.roles.find("name", "Modo");
+    if(!message.member.roles.has(modRole.id)) {
+        return message.reply("Tu n'as pas la permission de faire cette commande. Désolé !").catch(console.error);
+    }
+    const member = message.mentions.members.first();
+    if (!member) return message.reply("Merci de mentionner l'utilisateur à bannir.");
+    member.ban().then(member => {
+        message.reply(`${member.user.username} a été bannu avec succès !`).catch(console.error);
+        message.guild.channels.find("name", "bienvenue-aurevoir").send(`**${member.user.username}** a été banni du discord par **${message.author.username}**`);
+    }).catch(console.error)
+}})
 
 bot.login(process.env.TOKEN)
