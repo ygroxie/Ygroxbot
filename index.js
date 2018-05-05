@@ -2,6 +2,8 @@ const Discord = require("discord.js");
 
 var bot = new Discord.Client();
 
+var prefix = (".")
+
 bot.on("ready", function() {
     bot.user.setGame("YgroxBot, !help");
     console.log("Le bot a bien, était connecté !");
