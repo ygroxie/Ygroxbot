@@ -16,7 +16,7 @@ bot.on('message', function (message) {
 });
 
 bot.on('guildMemberAdd', member => {
-    var role = member.guild.roles.find('name', 'test');
+    var role = member.guild.roles.find('name', 'Joueur');
     member.addRole(role)
 })
 
@@ -25,7 +25,9 @@ bot.on('guildMemberAdd', member => {
 })
 
 bot.on('guildMemberRemove', member => {
-    member.guild.channels.find("name", "bienvenue-aurevoir").send(`Oh non ! ${member} vient de quitter le serveur !`)
+
+    member.guild.channels.find("name", "bienvenue-aurevoir").send(`Oh non ! '+member.user.tag+' vient de quitter le serveur !`)
+
 })
 
 bot.on('message', message => {
