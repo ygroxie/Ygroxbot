@@ -26,7 +26,7 @@ bot.on('guildMemberAdd', member => {
 
 bot.on('guildMemberRemove', member => {
 
-    member.guild.channels.find("name", "bienvenue-aurevoir").send(`Oh non ! '+member.user.tag+' vient de quitter le serveur !`)
+    member.guild.channels.find("name", "bienvenue-aurevoir").send(`Oh non ! {member.user.tag}vient de quitter le serveur !`)
 
 })
 
