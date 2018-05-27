@@ -36,6 +36,7 @@ bot.on('message',(message)=>{
     .addField("?help","affiche les commandes du bot")
     .setColor("D7F705")
     .setTitle("Guide Commandes !")
+    .setFooter ("message")
     message.channel.send(embed)
     }
     })
