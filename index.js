@@ -30,8 +30,8 @@ bot.on('guildMemberRemove', member => {
 
 })
 
-bot.on('message', (message) {
-    if(message.content == "!embed") {
+bot.on('message', function (message) {
+    if (message.content === '!embed') {
     var embed = new Discord.richEmbed()
     .addField("test")
     .setColor("40A497")
