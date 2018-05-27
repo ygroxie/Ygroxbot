@@ -33,7 +33,7 @@ bot.on('guildMemberRemove', member => {
 bot.on('message',(message)=>{
     if(message.content == "?help") {
     var embed = new Discord.RichEmbed()
-    .addField("?help","affiche les commandes du bot")
+    .addField("?help","affiche les commandes du bot :lol: :lal: ")
     .setColor("D7F705")
     .setTitle("Guide Commandes !")
     .setFooter ("(Utile si tu as courtes mémoire ! x) ")
