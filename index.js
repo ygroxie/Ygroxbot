@@ -30,7 +30,7 @@ bot.on('guildMemberRemove', member => {
 
 })
 
-bot.on('message', function (message) {
+bot.on('message', function (message) => {
     if (message.content === '!embed') {
     var embed = new Discord.richEmbed()
     .addField("test")
