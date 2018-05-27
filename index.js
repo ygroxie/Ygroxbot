@@ -33,8 +33,8 @@ bot.on('guildMemberRemove', member => {
 bot.on('message',(message)=>{
     if(message.content == "!embed") {
     var embed = new Discord.RichEmbed()
-    .addField("test")
-    .setColor("40A497")
+    .addField("?help","affiche les commandes du bot")
+    .setColor("D7F705")
     .setTitle("Guide Commandes !")
     message.channel.send(embed)
     }
