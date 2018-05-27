@@ -2,10 +2,10 @@ const Discord = require("discord.js");
 
 var bot = new Discord.Client();
 
-var prefix = (".")
+var prefix = ("?")
 
 bot.on("ready", function() {
-    bot.user.setGame("YgroxBot, .help");
+    bot.user.setGame("YgroxBot, ?help");
     console.log("Le bot a bien, était connecté !");
 });
 
@@ -31,7 +31,7 @@ bot.on('guildMemberRemove', member => {
 })
 
 bot.on('message',(message)=>{
-    if(message.content == "!embed") {
+    if(message.content == "?help") {
     var embed = new Discord.RichEmbed()
     .addField("?help","affiche les commandes du bot")
     .setColor("D7F705")
@@ -67,6 +67,20 @@ bot.on('message', message => {
         
 }
 
+if (command === "ban") {
+    let modRole = message.guild.roles.find("name", "Modo");
+    if(!message.member.roles.has(modRole.id)) {
+        return message.reply("Tu n'as pas la permission de faire cette commande. Désolé !").catch(console.error);
+    }
+    const member = message.mentions.members.first();
+    if (!member) return message.reply("Merci de mentionner l'utilisateur à bannir.");
+    member.ban().then(member => {
+        message.reply(`${member.user.username} a été bannu avec succès !`).catch(console.error);
+        message.guild.channels.find("name", "bienvenue-aurevoir").send(`**${member.user.username}** a été banni du discord par **${message.author.username}**`);
+    }).catch(console.error)
+}})
+
+bot.login(process.env.TOKEN)
 if (command === "ban") {
     let modRole = message.guild.roles.find("name", "Modo");
     if(!message.member.roles.has(modRole.id)) {
