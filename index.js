@@ -35,8 +35,7 @@ bot.on('message',(message)=>{
     var embed = new Discord.RichEmbed()
     .addField("test")
     .setColor("40A497")
-    .setTitle("ton titre")
-    .setAuthor(bot.user.username,bot.user.avatarURL)
+    .setTitle("Guide Commandes !")
     message.channel.send(embed)
     }
     })
