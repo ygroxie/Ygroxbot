@@ -44,9 +44,9 @@ bot.on('message',(message)=>{
     }
     })
 
-bot.on('GuildMessage',message => {
+bot.on('message',message => {
     if (message.content == "?membres") {
-        message.reply(`Nous sommes actuellement ${member.guild.memberCount} membres sur le discord.`)
+        message.reply(`Nous sommes actuellement ${message.guild.memberCount} membres sur le discord.`)
     }
 })
 
