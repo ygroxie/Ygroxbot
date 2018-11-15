@@ -44,6 +44,12 @@ bot.on('message',(message)=>{
     }
     })
 
+bot.on('message',(message)=>{
+    if (message.content == "?membres") {
+        message.reply(`Nous sommes actuellement ${member.guild.memberCount} membres sur le discord.`)
+    }
+})
+
 bot.on('message', message => {
     let command = message.content.split(" ")[0];
     const args = message.content.slice(prefix.length).split(/ +/);
